@@ -1,6 +1,6 @@
 package example.usecase;
 
-import example.adapter.secondary.persistence.jdbc.HelloWorldRepository;
+import example.domain.HelloWorldRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

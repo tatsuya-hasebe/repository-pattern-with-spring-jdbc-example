@@ -1,23 +1,21 @@
 package example.usecase.todo.interactor;
 
-import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import example.domain.todo.Todo;
 import example.domain.todo.TodoRepository;
-import example.domain.todo.TodoFilter;
-import example.usecase.todo.ListTodosUseCase;
-
+import example.usecase.todo.GetTodoUseCase;
 
 @Service
-public class ListTodosUseCaseInteractor implements ListTodosUseCase {
+public class GetTodoUseCaseInteractor implements GetTodoUseCase {
     @Autowired
     private TodoRepository todoRepository;
 
     @Override
-    public List<Todo> execute(TodoFilter filter) {
-        return todoRepository.filterBy(filter);
+    public Optional<Todo> execute(Long id) {
+        return todoRepository.findById(id);
     }
 }
